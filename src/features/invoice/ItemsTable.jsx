@@ -12,7 +12,6 @@ const ItemsTable = ({ items, onUpdateItem, onRemoveItem, onAddItem, isPrinting }
                         <tr className="text-slate-400 text-[10px] font-black uppercase tracking-[0.2em] border-b-2 border-slate-900">
                             <th className="py-4 px-2 text-left">Equipo & Descripción</th>
                             <th className="py-4 px-2 text-left">Servicio ID</th>
-                            <th className="py-4 px-2 text-center">Referencia (Barcode)</th>
                             <th className="py-4 px-2 text-right">Valor Neto</th>
                             {!isPrinting && <th className="py-4 px-2 w-10"></th>}
                         </tr>
@@ -37,19 +36,6 @@ const ItemsTable = ({ items, onUpdateItem, onRemoveItem, onAddItem, isPrinting }
                                         placeholder="ID SERVICIO"
                                         disabled={isPrinting}
                                     />
-                                </td>
-                                <td className="py-6 px-2 text-center">
-                                    <div className="flex flex-col items-center group-hover:scale-110 transition-transform">
-                                        <span className="barcode text-slate-900 leading-none">{item.code || 'KMLI'}</span>
-                                        <Input
-                                            value={item.code}
-                                            onChange={(e) => onUpdateItem(item.id, 'code', e.target.value.toUpperCase())}
-                                            className="text-[9px] font-black text-slate-400 mt-1 text-center w-20"
-                                            placeholder="CÓDIGO"
-                                            disabled={isPrinting}
-                                            align="center"
-                                        />
-                                    </div>
                                 </td>
                                 <td className="py-6 px-2 text-right">
                                     <div className="flex items-center justify-end font-black text-slate-900 text-lg">

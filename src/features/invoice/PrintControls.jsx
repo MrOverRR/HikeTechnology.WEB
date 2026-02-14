@@ -31,8 +31,8 @@ const PrintControls = ({ isPrinting, onTogglePrint, onPrint }) => {
                     <Hash className="text-black" size={20} />
                 </div>
                 <div>
-                    <h1 className="text-lg font-black text-slate-800 leading-tight">KMLI TECHNOLOGY</h1>
-                    <p className="text-xs text-slate-500 font-bold uppercase tracking-tighter">Generador de Documentos</p>
+                    <h1 className="text-lg font-black text-slate-800 leading-tight">HIKE TECHNOLOGY</h1>
+                    <p className="text-xs text-slate-500 font-bold uppercase tracking-tighter">Sistema de Gestión de Cobros</p>
                 </div>
             </div>
             <Button

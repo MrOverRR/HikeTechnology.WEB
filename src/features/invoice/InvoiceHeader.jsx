@@ -3,14 +3,14 @@ import Input from '../../components/ui/Input';
 
 const InvoiceHeader = ({ invoice, onUpdate, isPrinting }) => {
     return (
-        <div className="flex flex-col md:flex-row justify-between items-start mb-16 gap-8">
+        <div className="flex flex-col md:flex-row print:flex-row justify-between items-start mb-16 gap-8">
             <div className="space-y-4">
                 <div className="flex items-center gap-2">
                     <div className="w-12 h-12 bg-slate-900 rounded-xl flex items-center justify-center">
                         <span className="text-yellow-400 font-black text-2xl">K</span>
                     </div>
                     <div>
-                        <h2 className="text-2xl font-black text-slate-900 tracking-tighter italic">KMLI TECHNOLOGY</h2>
+                        <h2 className="text-2xl font-black text-slate-900 tracking-tighter italic">HIKE TECHNOLOGY</h2>
                         <p className="text-[10px] font-bold text-slate-400 tracking-[0.3em] uppercase">Tech Solutions</p>
                     </div>
                 </div>

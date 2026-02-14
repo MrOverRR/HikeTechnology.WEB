@@ -4,7 +4,7 @@ import Input from '../../components/ui/Input';
 
 const ClientInfo = ({ invoice, onUpdate, isPrinting }) => {
     return (
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mb-12 bg-slate-50/50 p-6 rounded-2xl border border-slate-100">
+        <div className="grid grid-cols-1 md:grid-cols-2 print:grid-cols-2 gap-12 mb-12 bg-slate-50/50 p-6 rounded-2xl border border-slate-100">
             <div className="space-y-3">
                 <div className="flex items-center gap-2 text-slate-400">
                     <User size={14} />

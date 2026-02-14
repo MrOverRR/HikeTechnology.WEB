@@ -20,7 +20,12 @@ const App = () => {
   } = useInvoice();
 
   const handlePrint = () => {
+    const originalTitle = document.title;
+    document.title = `Recibo_${invoice.number}`;
     window.print();
+    setTimeout(() => {
+      document.title = originalTitle;
+    }, 500);
   };
 
   return (
@@ -60,6 +65,7 @@ const App = () => {
           discountPercent={invoice.discountPercent}
           discountAmount={discountAmount}
           total={total}
+          isDiscountEnabled={invoice.isDiscountEnabled}
           onUpdate={actions.updateInvoiceField}
           isPrinting={isPrinting}
         />
