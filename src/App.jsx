@@ -77,7 +77,7 @@ const App = () => {
           />
         </div>
 
-        <InvoiceFooter />
+        <InvoiceFooter total={total} />
 
       </div>
     </MainLayout>

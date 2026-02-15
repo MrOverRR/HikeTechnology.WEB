@@ -50,3 +50,53 @@
         display: none !important;
     }
 }
+
+/* ===== Bloque de firma profesional ===== */
+.firma-container {
+    width: 250px;
+    margin-top: 4px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    position: relative;
+}
+
+.firma-imagen {
+    display: block;
+    margin: 0 auto;
+    width: 240px; /* Tamaño: aumenta/disminuye para cambiar el tamaño de la firma */
+    height: auto;
+    position: relative;
+    bottom: -28px; /* Superposición con la línea. Más negativo = más abajo (evitar valores > 35px o crea espacio arriba) */
+    z-index: 2;
+    /* Efecto tinta sobre papel: invierte blanco→negro y usa multiply para transparencia */
+    filter: invert(1);
+    mix-blend-mode: multiply;
+}
+
+.firma-linea {
+    width: 100%;
+    border-bottom: 1px solid rgb(15 23 42 / 0.5);
+    margin-top: -50px; /* Sube la línea y el texto de firma */
+    margin-bottom: 10px;
+    z-index: 1;
+}
+
+.firma-texto {
+    font-size: 14px;
+    color: #334155;
+    line-height: 1.4;
+    margin: 0;
+    margin-top: -8px; /* Sube el texto "Firma Autorizada" */
+}
+
+@media print {
+    .firma-container {
+        margin-top: 2px;
+    }
+
+    .firma-imagen {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+}
