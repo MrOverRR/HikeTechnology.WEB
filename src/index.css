@@ -1,1 +1,52 @@
 @import "tailwindcss";
+
+@media print {
+    @page {
+        margin: 0.4cm;
+        size: A4;
+    }
+
+    body {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+
+    .print-container {
+        padding: 0 !important;
+        margin: 0 !important;
+        box-shadow: none !important;
+        border: none !important;
+        max-width: 100% !important;
+        width: 100% !important;
+    }
+
+    /* Reduce font sizes for print to fit more content */
+    table th,
+    table td {
+        padding-top: 0.35rem !important;
+        padding-bottom: 0.35rem !important;
+        padding-left: 0.25rem !important;
+        padding-right: 0.25rem !important;
+    }
+
+    table th {
+        font-size: 0.7rem !important;
+    }
+
+    table td input,
+    table td textarea,
+    table td div {
+        font-size: 0.75rem !important;
+    }
+
+    /* Ensure textarea content is fully visible */
+    textarea {
+        resize: none;
+        overflow: hidden;
+        min-height: auto;
+    }
+
+    .no-print {
+        display: none !important;
+    }
+}

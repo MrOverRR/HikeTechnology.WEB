@@ -7,7 +7,8 @@ const Input = ({
     className = '',
     type = 'text',
     disabled = false,
-    align = 'left'
+    align = 'left',
+    style = {}
 }) => {
     const baseStyles = "bg-transparent outline-none focus:ring-0 placeholder:text-slate-300 transition-colors";
     const alignStyles = {
@@ -24,6 +25,7 @@ const Input = ({
             placeholder={placeholder}
             className={`${baseStyles} ${alignStyles[align]} ${className}`}
             disabled={disabled}
+            style={style}
         />
     );
 };

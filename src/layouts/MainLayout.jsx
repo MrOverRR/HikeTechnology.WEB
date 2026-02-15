@@ -34,6 +34,8 @@ const MainLayout = ({ children, isPrinting }) => {
           .no-print { display: none !important; }
           body { background: white; }
           .print-container { box-shadow: none !important; border: none !important; width: 100% !important; max-width: 100% !important; margin: 0 !important; padding: 0 !important; }
+          * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+          .page-break-inside-avoid { break-inside: avoid; page-break-inside: avoid; }
         }
       `}</style>
 

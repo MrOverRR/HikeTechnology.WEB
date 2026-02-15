@@ -2,10 +2,10 @@ import React from 'react';
 
 const variants = {
     primary: "bg-slate-900 text-white hover:bg-black active:scale-95",
-    secondary: "bg-yellow-400 text-black hover:bg-yellow-500 animate-bounce active:scale-95",
+    secondary: "bg-[#f8b920] text-black hover:bg-[#dfa01c] animate-bounce active:scale-95",
     danger: "text-slate-300 hover:text-red-500 transition-opacity", // For Delete button
     ghost: "bg-white text-slate-800 border border-slate-200 hover:bg-slate-50", // For "Volver a Editar"
-    dashed: "border-2 border-dashed border-slate-200 text-slate-400 hover:border-yellow-400 hover:text-yellow-600 hover:bg-yellow-50/50" // For Add Item
+    dashed: "border-2 border-dashed border-slate-200 text-slate-400 hover:border-[#f8b920] hover:text-[#f8b920] hover:bg-[#f8b920]/10" // For Add Item
 };
 
 const sizes = {

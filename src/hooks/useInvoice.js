@@ -13,7 +13,7 @@ export const useInvoice = () => {
         discountPercent: 15,
         isDiscountEnabled: false,
         items: [
-            { id: 1, desc: "LITEBEAM 5AC GEN 2 (FCP)", service: "BGA2228", price: 120000 },
+            { id: 1, quantity: 1, desc: "LITEBEAM 5AC GEN 2 (FCP)", service: "BGA2228", unitValue: 120000 },
         ]
     };
 
@@ -38,7 +38,7 @@ export const useInvoice = () => {
     }, [invoice]);
 
     // Cálculos
-    const subtotal = invoice.items.reduce((acc, item) => acc + (Number(item.price) || 0), 0);
+    const subtotal = invoice.items.reduce((acc, item) => acc + ((Number(item.quantity) || 0) * (Number(item.unitValue) || 0)), 0);
     const discountAmount = invoice.isDiscountEnabled ? subtotal * (invoice.discountPercent / 100) : 0;
     const total = subtotal - discountAmount;
 
@@ -53,7 +53,7 @@ export const useInvoice = () => {
     const addItem = () => {
         setInvoice({
             ...invoice,
-            items: [...invoice.items, { id: Date.now(), desc: "", service: "", price: 0 }]
+            items: [...invoice.items, { id: Date.now(), quantity: 1, desc: "", service: "", unitValue: 0 }]
         });
     };
 

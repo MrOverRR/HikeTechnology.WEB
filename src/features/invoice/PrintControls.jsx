@@ -27,7 +27,7 @@ const PrintControls = ({ isPrinting, onTogglePrint, onPrint }) => {
     return (
         <div className="max-w-4xl mx-auto mb-6 flex flex-wrap gap-4 justify-between items-center bg-white p-4 rounded-2xl shadow-xl border border-white/50 no-print">
             <div className="flex items-center gap-3">
-                <div className="bg-yellow-400 p-2 rounded-lg">
+                <div className="bg-[#f8b920] p-2 rounded-lg">
                     <Hash className="text-black" size={20} />
                 </div>
                 <div>

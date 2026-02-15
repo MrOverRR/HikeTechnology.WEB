@@ -3,36 +3,31 @@ import Input from '../../components/ui/Input';
 
 const InvoiceHeader = ({ invoice, onUpdate, isPrinting }) => {
     return (
-        <div className="flex flex-col md:flex-row print:flex-row justify-between items-start mb-16 gap-8">
-            <div className="space-y-4">
-                <div className="flex items-center gap-2">
-                    <div className="w-12 h-12 bg-slate-900 rounded-xl flex items-center justify-center">
-                        <span className="text-yellow-400 font-black text-2xl">K</span>
-                    </div>
-                    <div>
-                        <h2 className="text-2xl font-black text-slate-900 tracking-tighter italic">HIKE TECHNOLOGY</h2>
-                        <p className="text-[10px] font-bold text-slate-400 tracking-[0.3em] uppercase">Tech Solutions</p>
-                    </div>
+        <div className="flex flex-col md:flex-row print:flex-row justify-between items-start mb-10 print:mb-3 gap-6 print:gap-4">
+            <div className="space-y-2">
+                <div className="flex items-center justify-start">
+                    <img src="/Hike1_Color.png" alt="Hike Technology" className="w-64 print:w-48 h-auto object-contain object-left" />
                 </div>
                 <div className="text-xs text-slate-500 font-medium space-y-1">
-                    <p>Soluciones Tecnológicas e Infraestructura</p>
-                    <p>NIT: 900.XXX.XXX-X</p>
-                    <p>Contacto: +57 3XX XXX XXXX</p>
+                    <p>Mantenimiento y reparación especializado de equipo eléctronico</p>
+                    <p>NIT: 1014737391-0</p>
+                    <p>Contacto: +57 322 381 8907</p>
                 </div>
             </div>
 
             <div className="text-right flex flex-col items-end">
-                <div className="bg-yellow-400 text-black px-4 py-1.5 text-[10px] font-black tracking-widest uppercase rounded-full mb-4 shadow-sm">
+                <div className="bg-[#f8b920] text-black px-4 py-1.5 text-[10px] font-black tracking-widest uppercase rounded-full mb-4 shadow-sm">
                     Cuenta de Cobro
                 </div>
-                <div className="text-5xl font-black text-slate-900 tracking-tighter flex items-center justify-end">
-                    <span className="text-yellow-400 mr-2">#</span>
+                <div className="text-5xl font-black text-slate-900 tracking-tighter flex items-center justify-end gap-0">
+                    <span className="text-[#f8b920] mr-1.5 flex-shrink-0">#</span>
                     <Input
                         value={invoice.number}
                         onChange={(e) => onUpdate('number', e.target.value)}
-                        className="w-28 text-right font-black bg-transparent"
+                        className="font-black bg-transparent flex-shrink-0 text-left"
+                        style={{ width: `${Math.max(2, String(invoice.number || '').length + 1)}ch` }}
                         disabled={isPrinting}
-                        align="right"
+                        align="left"
                     />
                 </div>
                 <Input
