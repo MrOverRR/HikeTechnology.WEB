@@ -15,7 +15,7 @@ const cardStyles = {
     },
 };
 
-const CARD_WIDTH = 'min-w-[200px] print:min-w-[175px] w-[200px] print:w-[175px]';
+const CARD_WIDTH = 'min-w-[140px] print:min-w-[120px] w-[140px] print:w-[120px]';
 
 const PaymentCard = ({ title, type, number, numberLabel = 'No.', titular, badge }) => {
     const bgStyle = cardStyles[type].bg;
@@ -24,11 +24,11 @@ const PaymentCard = ({ title, type, number, numberLabel = 'No.', titular, badge 
         : { backgroundColor: bgStyle };
     return (
     <div
-        className={`relative p-5 print:p-4 rounded-xl border border-slate-800/50 overflow-hidden group flex-shrink-0 ${CARD_WIDTH}`}
-        style={style}
+        className={`payment-card relative p-4 print:p-3 rounded-xl border border-slate-800/50 overflow-hidden group flex-shrink-0 ${CARD_WIDTH}`}
+        style={{ ...style, printColorAdjust: 'exact' }}
     >
-        <div className="absolute -bottom-6 -left-4 w-[120%] opacity-70 pointer-events-none overflow-hidden">
-            <svg viewBox="0 0 400 100" className="w-full h-20 print:h-14" preserveAspectRatio="none">
+        <div className="absolute bottom-0 left-0 right-0 w-full h-14 print:h-10 opacity-70 pointer-events-none overflow-hidden translate-y-[9px]" style={{ printColorAdjust: 'exact' }}>
+            <svg viewBox="0 0 400 100" className="w-full h-full" preserveAspectRatio="xMidYMax slice" style={{ printColorAdjust: 'exact' }}>
                 {cardStyles[type].paths.map((stroke, i) => (
                     <path
                         key={i}
@@ -42,10 +42,10 @@ const PaymentCard = ({ title, type, number, numberLabel = 'No.', titular, badge 
             </svg>
         </div>
         <div className="relative z-10">
-            <p className="text-[10px] print:text-[9px] font-black text-white uppercase italic mb-2 tracking-widest flex items-center gap-1">
+            <p className="text-[9px] print:text-[8px] font-black text-white uppercase italic mb-1.5 tracking-widest flex items-center gap-1 flex-wrap">
                 {title}
                 {badge && (
-                    <span className="text-[9px] print:text-[8px] bg-white text-black px-2 py-0.5 rounded-full not-italic">
+                    <span className="text-[8px] print:text-[7px] bg-white text-black px-1.5 py-0.5 rounded-full not-italic whitespace-nowrap">
                         {badge}
                     </span>
                 )}
@@ -62,8 +62,8 @@ const PaymentCards = () => (
         <h4 className="text-[9px] print:text-[8px] font-black text-slate-400 uppercase tracking-widest flex items-center gap-1">
             Información de Pago
         </h4>
-        <div className="flex flex-wrap gap-4 print:gap-3">
-            <PaymentCard title="Bancolombia" type="bancolombia" number="254-522771-00" titular="JOSEPH YARCE" badge="Ahorros" />
+        <div className="flex flex-wrap gap-3 print:gap-2 justify-start">
+            <PaymentCard title="Bancolombia" type="bancolombia" number="254-522771-00" numberLabel="" titular="JOSEPH YARCE" badge="Ahorros" />
             <PaymentCard title="Nequi" type="nequi" number="3223818907" numberLabel="" titular="JOSEPH YARCE" />
             <PaymentCard title="Daviplata" type="daviplata" number="3223818907" numberLabel="" titular="JOSEPH YARCE" />
         </div>

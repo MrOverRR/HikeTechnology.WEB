@@ -2,7 +2,7 @@
 
 @media print {
     @page {
-        margin: 0.4cm;
+        margin: 1.2cm;
         size: A4;
     }
 
@@ -48,6 +48,26 @@
 
     .no-print {
         display: none !important;
+    }
+
+    /* Identificación: quitar borde nativo del dropdown en PDF */
+    .identification-select,
+    .identification-select:focus {
+        border: none !important;
+        outline: none !important;
+        box-shadow: none !important;
+        appearance: none !important;
+        -webkit-appearance: none !important;
+        background: transparent !important;
+    }
+
+    /* Centrado del bloque identificación (dropdown + input) en PDF */
+    .identification-field {
+        justify-content: center;
+        text-align: center;
+    }
+    .identification-input {
+        text-align: center !important;
     }
 }
 

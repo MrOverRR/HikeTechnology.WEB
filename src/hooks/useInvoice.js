@@ -9,6 +9,7 @@ export const useInvoice = () => {
         date: "2026-02-07",
         clientName: "",
         clientId: "",
+        clientIdType: "NIT",
         discountName: "DESCUENTO",
         discountPercent: 15,
         isDiscountEnabled: false,
