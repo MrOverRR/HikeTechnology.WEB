@@ -11,21 +11,23 @@ const ClientInfo = ({ invoice, onUpdate, isPrinting }) => {
                     <User size={14} />
                     <p className="text-[10px] font-black uppercase tracking-widest">CLIENTE</p>
                 </div>
-                <Input
-                    placeholder="Nombre completo del cliente"
-                    align="center"
-                    className="w-full border-b border-slate-200 focus:border-[#f8b920] py-1 font-bold text-slate-800 text-lg"
-                    value={invoice.clientName}
-                    onChange={(e) => onUpdate('clientName', e.target.value)}
-                    disabled={isPrinting}
-                />
+                <div className="w-full min-h-[2.125rem] flex items-end justify-center border-b border-slate-200 focus-within:border-[#f8b920] transition-colors">
+                    <Input
+                        placeholder="Nombre completo del cliente"
+                        align="center"
+                        className="w-full border-0 border-transparent focus:ring-0 py-1 font-bold text-slate-800 text-lg"
+                        value={invoice.clientName}
+                        onChange={(e) => onUpdate('clientName', e.target.value)}
+                        disabled={isPrinting}
+                    />
+                </div>
             </div>
-            <div className="space-y-1.5 flex flex-col items-center">
+            <div className="space-y-3 flex flex-col items-center">
                 <div className="flex items-center justify-center gap-2 text-slate-700">
                     <CreditCard size={14} />
                     <p className="text-[10px] font-black uppercase tracking-widest">IDENTIFICACIÓN</p>
                 </div>
-                <div className="identification-field w-full max-w-sm flex items-center justify-center gap-0 border-b border-slate-200 focus-within:border-[#f8b920] transition-colors mx-auto">
+                <div className="identification-field w-full max-w-sm min-h-[2.125rem] flex items-end justify-center gap-0 border-b border-slate-200 focus-within:border-[#f8b920] transition-colors mx-auto">
                     {isPrinting ? (
                         <div className="w-full text-center font-bold text-slate-800 text-lg py-1">
                             {clientIdType} {invoice.clientId}

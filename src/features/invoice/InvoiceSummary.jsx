@@ -50,7 +50,10 @@ const InvoiceSummary = ({ subtotal, discountName, discountPercent, discountAmoun
                 </div>
             )}
 
-            <div className="flex flex-col items-center justify-center text-center bg-slate-900 text-white p-4 print:p-2 rounded-2xl print:rounded-xl shadow-lg relative overflow-hidden group w-full">
+            <div
+                className="total-a-pagar flex flex-col items-center justify-center text-center text-white p-4 print:p-2 rounded-2xl print:rounded-xl shadow-lg print:shadow-none relative overflow-hidden group w-full"
+                style={{ backgroundColor: '#0f172a', printColorAdjust: 'exact' }}
+            >
                 <p className="text-[9px] print:text-[8px] font-black text-[#f8b920] uppercase tracking-wider mb-0.5">Total a Pagar</p>
                 <span className="text-2xl print:text-lg font-black">{formatCurrency(total)}</span>
             </div>

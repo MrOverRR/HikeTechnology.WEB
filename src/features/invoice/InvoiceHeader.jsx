@@ -22,7 +22,7 @@ const InvoiceHeader = ({ invoice, onUpdate, isPrinting }) => {
                     <p>TEL: +57 322 381 8907</p>
                     <p>CRA 45 # 65 - 27</p>
                     <p>Bucaramanga - Colombia</p>
-                    <p className="text-slate-500">hike.technology1@gmail.com</p>
+                    <p>hike.technology1@gmail.com</p>
                 </div>
             </div>
 

@@ -69,6 +69,18 @@
     .identification-input {
         text-align: center !important;
     }
+
+    /* Padding izquierdo de la tarjeta de pago (Bancolombia, etc.) en PDF */
+    .payment-card {
+        padding-left: 4px !important;
+    }
+
+    /* Total a Pagar: quitar sombra y evitar doble fondo gris en PDF (especialmente iOS) */
+    .total-a-pagar {
+        box-shadow: none !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+    }
 }
 
 /* ===== Bloque de firma profesional ===== */

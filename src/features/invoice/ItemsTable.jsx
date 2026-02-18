@@ -2,6 +2,7 @@ import React from 'react';
 import { Trash2, Plus } from 'lucide-react';
 import Input from '../../components/ui/Input';
 import Button from '../../components/ui/Button';
+import { formatCurrencyNumber, parseCurrencyNumber } from '../../utils/format';
 
 const ItemsTable = ({ items, onUpdateItem, onRemoveItem, onAddItem, isPrinting }) => {
     return (
@@ -10,17 +11,17 @@ const ItemsTable = ({ items, onUpdateItem, onRemoveItem, onAddItem, isPrinting }
                 <table className="w-full mb-6 print:mb-3 print:table-fixed border border-slate-200 border-collapse">
                     <thead>
                         <tr className="text-slate-800 text-sm font-black uppercase tracking-[0.1em] border-b-2 border-slate-900">
-                            <th className="py-4 px-2 w-[10%] text-center border border-slate-200">Cantidad</th>
-                            <th className="py-4 px-2 w-[25%] text-center border border-slate-200">Equipo</th>
-                            <th className="py-4 px-2 w-[45%] text-center border border-slate-200">Servicio</th>
-                            <th className="py-4 px-2 w-[20%] text-center border border-slate-200">Valor Unitario</th>
+                            <th className="py-4 px-2 w-[10%] print:w-[14%] min-w-0 text-center border border-slate-200 break-words">Cantidad</th>
+                            <th className="py-4 px-2 w-[25%] print:w-[23%] min-w-0 text-center border border-slate-200 break-words">Equipo</th>
+                            <th className="py-4 px-2 w-[45%] print:w-[43%] min-w-0 text-center border border-slate-200 break-words">Servicio</th>
+                            <th className="py-4 px-2 w-[20%] min-w-0 text-center border border-slate-200 break-words">Valor Unitario</th>
                             {!isPrinting && <th className="py-4 px-2 w-[5%] border border-slate-200"></th>}
                         </tr>
                     </thead>
                     <tbody>
                         {items.map((item) => (
                             <tr key={item.id} className="group transition-colors hover:bg-slate-50/50">
-                                <td className="py-6 px-2 align-middle border border-slate-200 text-center">
+                                <td className="py-6 px-2 align-middle border border-slate-200 text-center break-words min-w-0">
                                     {isPrinting ? (
                                         <div className="text-center font-bold text-slate-800">{item.quantity}</div>
                                     ) : (
@@ -35,7 +36,7 @@ const ItemsTable = ({ items, onUpdateItem, onRemoveItem, onAddItem, isPrinting }
                                         />
                                     )}
                                 </td>
-                                <td className="py-6 px-2 align-middle border border-slate-200 text-center">
+                                <td className="py-6 px-2 align-middle border border-slate-200 text-center break-words min-w-0">
                                     {isPrinting ? (
                                         <div className="text-center font-bold text-slate-800">{item.desc}</div>
                                     ) : (
@@ -71,12 +72,16 @@ const ItemsTable = ({ items, onUpdateItem, onRemoveItem, onAddItem, isPrinting }
                                     <div className="flex items-center justify-center font-black text-slate-900 text-lg">
                                         <span className="text-[#f8b920] mr-1">$</span>
                                         {isPrinting ? (
-                                            <span>{item.unitValue}</span>
+                                            <span>{formatCurrencyNumber(item.unitValue)}</span>
                                         ) : (
                                             <Input
-                                                type="number"
-                                                value={item.unitValue}
-                                                onChange={(e) => onUpdateItem(item.id, 'unitValue', e.target.value)}
+                                                type="text"
+                                                inputMode="decimal"
+                                                value={formatCurrencyNumber(item.unitValue)}
+                                                onChange={(e) => {
+                                                    const num = parseCurrencyNumber(e.target.value);
+                                                    onUpdateItem(item.id, 'unitValue', isNaN(num) ? 0 : num);
+                                                }}
                                                 align="center"
                                                 className="w-28 text-center bg-transparent"
                                                 disabled={isPrinting}

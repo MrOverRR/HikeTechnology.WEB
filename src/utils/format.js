@@ -13,6 +13,34 @@ export const formatCurrency = (value) => {
 };
 
 /**
+ * Formats a number with Colombian locale (dots for thousands, comma for decimals).
+ * Used in inputs and table cells (e.g. 120000 → "120.000", 120000.5 → "120.000,50").
+ * @param {number} value
+ * @returns {string}
+ */
+export const formatCurrencyNumber = (value) => {
+    const n = Number(value);
+    if (isNaN(n)) return '';
+    const hasDecimals = n % 1 !== 0;
+    const fixed = hasDecimals ? n.toFixed(2) : n.toFixed(0);
+    const [intPart, decPart] = fixed.split('.');
+    const withDots = intPart.replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+    if (!hasDecimals || !decPart) return withDots;
+    return withDots + ',' + decPart;
+};
+
+/**
+ * Parses a string with Colombian number format (e.g. "120.000" or "120.000,50") to number.
+ * @param {string} str
+ * @returns {number}
+ */
+export const parseCurrencyNumber = (str) => {
+    if (str === '' || str == null) return NaN;
+    const cleaned = String(str).replace(/\s/g, '').replace(/\./g, '').replace(',', '.');
+    return parseFloat(cleaned) || NaN;
+};
+
+/**
  * Returns today's date in YYYY-MM-DD format suitable for input[type="date"]
  * @returns {string}
  */

@@ -25,7 +25,7 @@ const PaymentCard = ({ title, type, number, numberLabel = 'No.', titular, badge 
     return (
     <div
         className={`payment-card relative p-4 print:p-3 rounded-xl border border-slate-800/50 overflow-hidden group flex-shrink-0 ${CARD_WIDTH}`}
-        style={{ ...style, printColorAdjust: 'exact' }}
+        style={{ ...style, printColorAdjust: 'exact', paddingLeft: '9px' }}
     >
         <div className="absolute bottom-0 left-0 right-0 w-full h-14 print:h-10 opacity-70 pointer-events-none overflow-hidden translate-y-[9px]" style={{ printColorAdjust: 'exact' }}>
             <svg viewBox="0 0 400 100" className="w-full h-full" preserveAspectRatio="xMidYMax slice" style={{ printColorAdjust: 'exact' }}>
@@ -50,7 +50,7 @@ const PaymentCard = ({ title, type, number, numberLabel = 'No.', titular, badge 
                     </span>
                 )}
             </p>
-            <p className="text-lg print:text-base font-mono font-bold text-white tracking-tight">{numberLabel ? `${numberLabel} ` : ''}{number}</p>
+            <p className="text-lg print:text-base font-mono font-bold text-white tracking-tight whitespace-nowrap">{numberLabel ? `${numberLabel} ` : ''}{number}</p>
             <p className="text-[9px] print:text-[8px] font-bold text-white/90 mt-2 uppercase">Titular: {titular}</p>
         </div>
     </div>
@@ -62,7 +62,7 @@ const PaymentCards = () => (
         <h4 className="text-[9px] print:text-[8px] font-black text-slate-400 uppercase tracking-widest flex items-center gap-1">
             Información de Pago
         </h4>
-        <div className="flex flex-wrap gap-3 print:gap-2 justify-start">
+        <div className="flex flex-wrap gap-2 print:gap-1 justify-start">
             <PaymentCard title="Bancolombia" type="bancolombia" number="254-522771-00" numberLabel="" titular="JOSEPH YARCE" badge="Ahorros" />
             <PaymentCard title="Nequi" type="nequi" number="3223818907" numberLabel="" titular="JOSEPH YARCE" />
             <PaymentCard title="Daviplata" type="daviplata" number="3223818907" numberLabel="" titular="JOSEPH YARCE" />
